@@ -153,7 +153,7 @@ html {
 #Opening {
     text-align: center;
     color: #ffffff;
-    font-size: 12rem;
+    font-size: 15vw;
     font-family: "Quantico", sans-serif;
 }
 
@@ -174,14 +174,14 @@ html {
 h2 {
     text-align: center;
     color: #ffffff;
-    font-size: 4rem;
+    font-size: 6rem;
     font-family: "Quantico", sans-serif;
 }
 
 h3 {
     text-align: center;
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 4rem;
     font-family: "Quantico", sans-serif;
 }
 
@@ -195,11 +195,11 @@ h3 {
 #nar {
     text-align: center;
     color: #17182E;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-family: "Odibee Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    margin: 1rem 4rem;
+    margin: 1rem 6rem;
 
 }
 
@@ -207,12 +207,13 @@ h3 {
     padding: 0.65rem 1rem;
     border-radius: 1.1rem;
     max-width: 70%;
-    margin: 0.65rem 8rem;
+    margin: 0.65rem 11rem;
     align-self: flex-start;
     border-bottom-left-radius: 0.3rem;
     background: #F2B82A;
     color: #17182E;
     font-family: "Allerta Stencil", sans-serif;
+    font-size: 1.35rem;
     box-shadow: 2px 3px 6px #17182E;
 }
 
@@ -220,12 +221,13 @@ h3 {
     padding: 0.65rem 1rem;
     border-radius: 1.1rem;
     max-width: 70%;
-    margin: 0.65rem 8rem;
+    margin: 0.65rem 11rem;
     align-self: flex-end;
     border-bottom-right-radius: 0.3rem;
     background: #17182E;
     color: #E69727;
     font-family: "Orbitron", sans-serif;
+    font-size: 1.35rem;
     font-weight: 500;
     box-shadow: -2px 3px 6px #F2B82A;
 }
@@ -234,12 +236,13 @@ h3 {
     padding: 0.65rem 1rem;
     border-radius: 1.1rem;
     max-width: 70%;
-    margin: 0.65rem 8rem;
+    margin: 0.65rem 11rem;
     align-self: flex-start;
     border-bottom-left-radius: 0.3rem;
     background: #17182E;
     color: #E69727;
     font-family: "Orbitron", sans-serif;
+    font-size: 1.35rem;
     font-weight: 500;
     box-shadow: 2px 3px 6px #F2B82A;
 }
@@ -248,20 +251,34 @@ h3 {
     padding: 0.65rem 1rem;
     border-radius: 1.1rem;
     max-width: 70%;
-    margin: 0.5rem 8rem;
+    margin: 0.5rem 11rem;
     align-self: flex-end;
     border-bottom-right-radius: 0.3rem;
     background: #F2B82A;
     color: #17182E;
     font-family: "Orbitron", sans-serif;
+    font-size: 1.35rem;
     font-weight: 500;
     box-shadow: -2px 3px 6px #b77923;
+}
+
+/*Claude help for animation*/
+.typing-cursor::after {
+    content: "▌";
+    animation: blink 0.8s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 
 .consoleBar {
     height: 2rem;
     background: #101120;
-    margin: 4rem 4rem 0rem 4rem;
+    margin: 4rem 5rem 0rem 4rem;
 }
 
 .console {
@@ -271,8 +288,18 @@ h3 {
     text-align: left;
     color: #ffffff;
     font-family: "Cascadia Code", monospace;
-    margin: 0rem 4rem;
+    font-size: 1.25rem;
+    margin: 0rem 5rem;
     position: relative;
+}
+
+.console p {
+    opacity: 0;
+}
+
+.console p.typing-cursor,
+.console p.typed {
+    opacity: 1;
 }
 
 #bar1 {
@@ -316,7 +343,7 @@ h3 {
     justify-content: center;
     text-align: center;
     color: #2AED36;
-    font-size: 12rem;
+    font-size: 10vw;
     font-family: "Orbitron", sans-serif;
     line-height: 10rem;
 }
@@ -331,6 +358,7 @@ h3 {
     color: #ffffff;
     display: flex;
     flex-direction: column;
+    margin-bottom: 5rem;
 }
 
 #live {
@@ -342,7 +370,8 @@ h3 {
     flex-direction: column;
 }
 
-@keyframes fadeIn {
+/*claude*/
+@keyframes slideIn {
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -357,10 +386,12 @@ h3 {
 .liveChat p {
     margin: 0rem 5rem;
     opacity: 0;
+    padding: 0 4rem;
+    font-size: 1.45rem;
 }
 
-.liveChat.in-view p {
-    animation: fadeIn 0.6s ease-out forwards;
+.liveChat p.in-view {
+    animation: slideIn 0.3s linear forwards;
 }
 
 .chat {
@@ -385,7 +416,7 @@ h3 {
     font-family: "Orbitron", sans-serif;
     font-weight: bold;
     color: #E69727;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     text-shadow: 2px 2px 4px #2AED36;
     -webkit-text-stroke: 1px #734b14;
     /*Claude*/
@@ -395,7 +426,7 @@ h3 {
 #explosion {
     width: 100%;
     height: 100%;
-    min-height: 120vh;
+    min-height: 150vh;
     background: white;
     background: linear-gradient(180deg,
             #17182E 0%,
@@ -408,9 +439,12 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 7rem;
+    font-size: 10vw;
     font-weight: bold;
     color: #E69727;
+    text-align: center;
+    text-shadow: 4px 4px 6px #ffce6c;
+    margin-top: 3rem;
 }
 
 
@@ -432,6 +466,36 @@ h3 {
     margin: 10rem 3rem;
 }
 
+/*Claude*/
+#end p {
+    opacity: 0;
+}
+
+#end p.typing-cursor,
+#end p.typed {
+    opacity: 1;
+}
+
+#links {
+    display: flex;
+    flex-direction: column;
+    background: rgba(71, 71, 71, 1) 100%;
+    text-align: center;
+    color: #101120;
+    font-family: "Odibee Sans", sans-serif;
+    font-weight: 400;
+    font-size: 4rem;
+    font-style: normal;
+}
+
+#links p {
+    margin: 1rem 4rem;
+}
+
+#next {
+    font-size: 2.7rem;
+}
+
 .prompt {
     opacity: 0.5;
 }
@@ -439,12 +503,43 @@ h3 {
 #container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2 rem;
+    gap: 2rem;
     background: rgba(71, 71, 71, 1) 100%;
     text-align: center;
     color: #E69727;
-    font-family: "Orbitron", sans-serif;
-    font-size: 1.5rem;
+    font-family: "Odibee Sans", sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: #E69727;
+    width: 60%;
+    margin: 3rem auto;
+}
+
+#container a:link {
+    color: #101120;
+    text-decoration: none;
+}
+
+#container a:visited {
+    color: #101120;
+    text-decoration: none;
+}
+
+#container a:hover {
+    color: #2AED36;
+    text-decoration: none;
+}
+
+#container a:active {
+    color: #2AED36;
+    text-decoration: none;
 }
 
 /*Claude*/
@@ -452,4 +547,93 @@ h3 {
     flex: 1 1 200px;
     margin-bottom: 10rem;
     margin: 3rem, 5rem;
+}
+
+/*claude*/
+
+#clock {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: "Quantico", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2AED36;
+    text-shadow: 4px 4px 6px #0a340d;
+    z-index: 50000000000000;
+    pointer-events: none;
+    display: flex;
+    align-items: baseline;
+    gap: 0.65em;
+}
+
+.digit-track {
+    position: relative;
+    display: inline-block;
+    width: 1 em;
+    height: 1em;
+    vertical-align: bottom;
+    text-align: center;
+    margin-left: -0.6em;
+}
+
+.digit-track .digit {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    top: -0.07em;
+    transition: transform 0.5s ease-in-out;
+
+}
+
+#footer {
+    background: linear-gradient(180deg, rgba(71, 71, 71, 1) 0%, rgba(23, 24, 46, 1) 10%);
+    font-family: "Quantico", sans-serif;
+    font-size: 1.2rem;
+    color: #CDE0EF;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.footer-left,
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-year {
+    position: absolute;
+    left: 50%;
+    bottom: 0.5rem;
+    transform: translateX(-50%);
+    font-size: 1rem;
+}
+
+footer a:link {
+    color: #CDE0EF;
+    text-decoration: none;
+}
+
+footer a:visited {
+    color: #CDE0EF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #E69727;
+    text-decoration: none;
+}
+
+footer a:active {
+    color: #E69727;
+    text-decoration: none;
 }
